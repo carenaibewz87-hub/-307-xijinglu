@@ -1,0 +1,1123 @@
+<title>习经录 · 中医综合307</title>
+<style>
+  :root {
+    --bg: #F1EEE4;
+    --surface: #FBFAF4;
+    --surface-2: #E9E4D4;
+    --ink: #23261E;
+    --ink-soft: #5B5D4C;
+    --accent: #4F7358;
+    --accent-strong: #375340;
+    --accent-tint: #DCE6DD;
+    --seal: #AD4E36;
+    --seal-tint: #F1DCD5;
+    --good: #3F7A56;
+    --warn: #966A24;
+    --warn-tint: #F1E4C8;
+    --border: rgba(35,38,30,0.14);
+    --shadow: 0 1px 2px rgba(35,38,30,0.06), 0 8px 24px -12px rgba(35,38,30,0.18);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #181B14;
+      --surface: #20241B;
+      --surface-2: #262B1F;
+      --ink: #EDE9DA;
+      --ink-soft: #A6A891;
+      --accent: #84AC8F;
+      --accent-strong: #A7CBAF;
+      --accent-tint: #2B3B2E;
+      --seal: #DD8468;
+      --seal-tint: #3A2A22;
+      --good: #7FBF97;
+      --warn: #D4A857;
+      --warn-tint: #3A331E;
+      --border: rgba(237,233,218,0.16);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #181B14; --surface: #20241B; --surface-2: #262B1F; --ink: #EDE9DA; --ink-soft: #A6A891;
+    --accent: #84AC8F; --accent-strong: #A7CBAF; --accent-tint: #2B3B2E; --seal: #DD8468; --seal-tint: #3A2A22;
+    --good: #7FBF97; --warn: #D4A857; --warn-tint: #3A331E; --border: rgba(237,233,218,0.16);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5); color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #F1EEE4; --surface: #FBFAF4; --surface-2: #E9E4D4; --ink: #23261E; --ink-soft: #5B5D4C;
+    --accent: #4F7358; --accent-strong: #375340; --accent-tint: #DCE6DD; --seal: #AD4E36; --seal-tint: #F1DCD5;
+    --good: #3F7A56; --warn: #966A24; --warn-tint: #F1E4C8; --border: rgba(35,38,30,0.14);
+    --shadow: 0 1px 2px rgba(35,38,30,0.06), 0 8px 24px -12px rgba(35,38,30,0.18); color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: "Noto Serif SC","Songti SC","STSong","SimSun",serif;
+    font-weight: 600;
+    text-wrap: balance;
+    color: var(--ink);
+    margin: 0 0 .5em;
+  }
+  .num, .tabular { font-family: ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace; font-variant-numeric: tabular-nums; }
+  a { color: var(--accent-strong); }
+  table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+  th, td { text-align: left; padding: .5rem .7rem; border-bottom: 1px solid var(--border); }
+  thead th { font-family: "Noto Serif SC",serif; color: var(--ink-soft); font-weight: 600; background: var(--surface-2); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; margin: .8rem 0 1.1rem; }
+  .table-wrap table { margin: 0; }
+
+  .app-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+  header.site {
+    padding: 2.2rem 0 1.4rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.6rem;
+  }
+  header.site .eyebrow {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    color: var(--accent-strong);
+    font-weight: 600;
+  }
+  header.site h1 { font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.05rem); margin: .25rem 0 .35rem; }
+  header.site p.tagline { color: var(--ink-soft); margin: 0; max-width: 62ch; }
+
+  .progress-strip {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-top: 1rem;
+    font-size: .88rem;
+    color: var(--ink-soft);
+  }
+  .progress-strip .bar {
+    flex: 1;
+    max-width: 320px;
+    height: 8px;
+    border-radius: 99px;
+    background: var(--surface-2);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .progress-strip .bar > span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+    transition: width .4s ease;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1.8rem;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  nav.side {
+    position: sticky;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  @media (max-width: 760px) {
+    nav.side { position: static; }
+  }
+  .nav-group h4 {
+    font-size: .78rem;
+    letter-spacing: .08em;
+    color: var(--ink-soft);
+    font-family: "PingFang SC",sans-serif;
+    font-weight: 600;
+    margin-bottom: .5rem;
+  }
+  .nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .3rem; }
+  .nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .6rem;
+    width: 100%;
+    text-align: left;
+    padding: .55rem .7rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .nav-btn:hover { background: var(--surface-2); }
+  .nav-btn.active { background: var(--surface); border-color: var(--border); box-shadow: var(--shadow); }
+  .nav-btn .dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    background: var(--ink-soft); opacity: .5;
+  }
+  .nav-btn .dot.mastered { background: var(--good); opacity: 1; }
+  .nav-btn .dot.partial { background: var(--warn); opacity: 1; }
+  .nav-btn .dot.weak { background: var(--seal); opacity: 1; }
+  .nav-btn .label { flex: 1; display: flex; flex-direction: column; }
+  .nav-btn .label small { color: var(--ink-soft); font-size: .74rem; }
+  .nav-btn .frac { font-size: .76rem; color: var(--ink-soft); }
+  .nav-btn:focus-visible, button:focus-visible, input:focus-visible, .opt:focus-within {
+    outline: 2px solid var(--accent-strong); outline-offset: 2px;
+  }
+
+  main.content { min-width: 0; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 1.4rem;
+  }
+  .card > h2:first-child, .card > h3:first-child { margin-top: 0; }
+
+  .chapter-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .chapter-head p { color: var(--ink-soft); margin: .2rem 0 0; }
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-tint);
+    padding: .7rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: .92rem;
+    margin: .9rem 0;
+  }
+  .callout.pitfall { border-left-color: var(--seal); background: var(--seal-tint); }
+  .callout strong { color: var(--accent-strong); }
+  .callout.pitfall strong { color: var(--seal); }
+  p.mnemonic {
+    font-size: .9rem;
+    color: var(--ink-soft);
+    border-top: 1px dashed var(--border);
+    padding-top: .8rem;
+    margin-top: 1rem;
+  }
+
+  .actions-row { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.1rem; }
+  .btn {
+    font: inherit;
+    font-weight: 600;
+    font-size: .92rem;
+    padding: .6rem 1.05rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform .1s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:hover { background: var(--surface-2); }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+  .btn.ghost { background: transparent; }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+  .quiz-meta { display: flex; align-items: center; gap: .6rem; margin-bottom: .8rem; flex-wrap: wrap; }
+  .chip {
+    display: inline-flex; align-items: center; gap: .3rem;
+    font-size: .74rem; font-weight: 600; letter-spacing: .03em;
+    padding: .2rem .55rem; border-radius: 99px;
+    background: var(--surface-2); color: var(--ink-soft);
+    border: 1px solid var(--border);
+  }
+  .chip.type-x { background: var(--warn-tint); color: var(--warn); border-color: transparent; }
+  .chip.type-a2 { background: var(--accent-tint); color: var(--accent-strong); border-color: transparent; }
+
+  .q-card { padding: 1.1rem 1.3rem; margin-bottom: 1rem; }
+  .q-card .stem { font-weight: 600; margin-bottom: .8rem; }
+  .q-card .tag { font-size: .74rem; color: var(--ink-soft); margin-top: .6rem; }
+  .opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .45rem; }
+  .opt {
+    display: flex; align-items: flex-start; gap: .6rem;
+    padding: .5rem .65rem; border-radius: 8px;
+    border: 1px solid var(--border); cursor: pointer;
+    background: var(--bg);
+  }
+  .opt:hover { background: var(--surface-2); }
+  .opt input { margin-top: .3rem; accent-color: var(--accent-strong); }
+  .opt.correct { border-color: var(--good); background: color-mix(in srgb, var(--good) 14%, var(--surface)); }
+  .opt.incorrect { border-color: var(--seal); background: color-mix(in srgb, var(--seal) 14%, var(--surface)); }
+  .opt.locked { cursor: default; }
+  .explain {
+    margin-top: .8rem; font-size: .9rem; color: var(--ink-soft);
+    background: var(--surface-2); border-radius: 8px; padding: .7rem .9rem; display: none;
+  }
+  .explain.show { display: block; }
+  .verdict { font-weight: 700; font-size: .82rem; margin-top: .7rem; }
+  .verdict.right { color: var(--good); }
+  .verdict.wrong { color: var(--seal); }
+
+  .score-banner {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .9rem 1.2rem; border-radius: 10px; background: var(--accent-tint);
+    border: 1px solid var(--border); margin-bottom: 1rem; flex-wrap: wrap;
+  }
+  .score-banner .score { font-family: "Noto Serif SC",serif; font-size: 1.3rem; }
+
+  .empty-note { color: var(--ink-soft); font-size: .9rem; }
+
+  footer.stats-panel h3 { margin-bottom: .3rem; }
+  .stats-panel p.lead { color: var(--ink-soft); margin-top: 0; font-size: .9rem; }
+  .status-pill { font-size: .74rem; font-weight: 600; padding: .12rem .5rem; border-radius: 99px; }
+  .status-pill.mastered { background: var(--accent-tint); color: var(--accent-strong); }
+  .status-pill.partial { background: var(--warn-tint); color: var(--warn); }
+  .status-pill.weak { background: var(--seal-tint); color: var(--seal); }
+  .status-pill.new { background: var(--surface-2); color: var(--ink-soft); }
+
+  .disclosure {
+    font-size: .84rem; color: var(--ink-soft); border-top: 1px solid var(--border);
+    margin-top: 2rem; padding-top: 1rem;
+  }
+</style>
+
+<div class="app-shell">
+  <header class="site">
+    <div class="eyebrow">中医综合307 · 学霸笔记陪练</div>
+    <h1>习经录</h1>
+    <p class="tagline">笔记先行，五题一考，错题回炉——把聊天里跑过的三轮抽查接续到这里，继续边学边考边背。</p>
+    <div class="progress-strip">
+      <span>知识点掌握 <span class="tabular" id="masterySummary">0 / 0</span></span>
+      <span class="bar"><span id="masteryBar" style="width:0%"></span></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="side">
+      <div class="nav-group">
+        <h4>章节</h4>
+        <ul class="nav-list" id="chapterNav"></ul>
+      </div>
+      <div class="nav-group">
+        <h4>专项模式</h4>
+        <ul class="nav-list">
+          <li><button class="nav-btn" id="btnReview" data-mode="review"><span class="dot weak"></span><span class="label">复盘<small>历史错题变式重考</small></span></button></li>
+          <li><button class="nav-btn" id="btnWeak" data-mode="weak"><span class="dot partial"></span><span class="label">弱项<small>正确率最低知识点</small></span></button></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content" id="content"></main>
+  </div>
+
+  <footer class="stats-panel card">
+    <h3>知识点正确率总表</h3>
+    <p class="lead">与 record/errors.md 的统计口径一致；连续答对 2 次视为"已掌握"。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>知识点</th><th class="tabular">出现</th><th class="tabular">答对</th><th class="tabular">正确率</th><th>状态</th></tr></thead>
+        <tbody id="statsBody"></tbody>
+      </table>
+    </div>
+  </footer>
+
+  <p class="disclosure">说明：本页题库为静态数据，来自我们此前几轮聊天中出过的题目与新补的变式题；后续新章节仍需要回到对话里让我出题、补充题库后再同步到这里。进度保存在你当前浏览器的 localStorage 中，换设备或清缓存不会同步。</p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var CHAPTERS = [
+    {
+      id: "zangxiang",
+      title: "藏象",
+      subtitle: "五脏六腑与奇恒之腑",
+      notes:
+        '<h3>五脏核心生理功能（速记表）</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>脏</th><th>主要生理功能</th><th>在志</th><th>在液</th><th>在体/华</th><th>开窍</th></tr></thead><tbody>' +
+        '<tr><td>心</td><td>主血脉、主神志（藏神）</td><td>喜</td><td>汗</td><td>脉/面</td><td>舌</td></tr>' +
+        '<tr><td>肺</td><td>主气司呼吸、宣发肃降、通调水道、朝百脉</td><td>悲（忧）</td><td>涕</td><td>皮/毛</td><td>鼻</td></tr>' +
+        '<tr><td>脾</td><td>主运化（水谷+水液）、主升清、主统血</td><td>思</td><td>涎</td><td>肉/唇</td><td>口</td></tr>' +
+        '<tr><td>肝</td><td>主疏泄、主藏血</td><td>怒</td><td>泪</td><td>筋/爪</td><td>目</td></tr>' +
+        '<tr><td>肾</td><td>藏精、主水、主纳气</td><td>恐</td><td>唾</td><td>骨/发</td><td>耳及二阴</td></tr>' +
+        '</tbody></table></div>' +
+        '<h3>六腑一句话功能</h3>' +
+        '<ul><li><strong>胆</strong>——贮藏排泄胆汁，主决断；六腑中唯一内藏"精汁"、不直接传化水谷糟粕，故称<strong>"孤府"</strong></li>' +
+        '<li><strong>胃</strong>——受纳腐熟水谷，主通降，喜润恶燥</li>' +
+        '<li><strong>小肠</strong>——受盛化物，泌别清浊</li>' +
+        '<li><strong>大肠</strong>——传化糟粕，主津</li>' +
+        '<li><strong>膀胱</strong>——贮尿排尿，赖肾气化</li>' +
+        '<li><strong>三焦</strong>——通行元气、水液运行的通道，"决渎之官"</li></ul>' +
+        '<div class="callout">奇恒之腑：<strong>脑、髓、骨、脉、胆、女子胞</strong>——形态似腑（中空）、功能似脏（藏精气而不泻），胆兼属六腑与奇恒之腑。三焦不属奇恒之腑，是常见易混淆点。</div>' +
+        '<h3>脏腑关系精要（高频）</h3>' +
+        '<ul><li><strong>心肾相交（水火既济）</strong>——心火下降温肾水，肾水上济润心火，动态平衡</li>' +
+        '<li><strong>肝脾（肝胃）</strong>——肝主疏泄助脾胃运化/升降，情志抑郁易致肝郁乘脾</li>' +
+        '<li><strong>脾胃升降相因</strong>——脾主升清，胃主降浊，"清阳出上窍，浊阴出下窍"，共为后天之本</li></ul>' +
+        '<div class="callout pitfall">易混淆：肝主疏泄失常见情志抑郁、胁肋胀痛、善太息、脉弦；若进一步影响脾胃则见纳呆腹胀便溏，此时应表述为"肝郁犯脾"，而非"肝主藏血失常"。</div>' +
+        '<p class="mnemonic">口诀：五脏配志——心喜肺悲脾思虑，肝怒肾恐记心间；六腑一线牵——胆决胃纳肠传化，膀胱排尿三焦道。</p>'
+    },
+    {
+      id: "yinyang",
+      title: "哲学基础",
+      subtitle: "阴阳学说与五行学说",
+      notes:
+        '<h3>阴阳基本内容（5条必背）</h3>' +
+        '<ul><li>对立制约——寒热温凉互相抑制</li><li>互根互用——"孤阴不生，独阳不长"</li>' +
+        '<li>交感与互藏——交感是化生根本条件，互藏是消长转化的内在根据</li>' +
+        '<li>消长平衡——量变（此消彼长/此长彼长）</li><li>相互转化——质变，"重阴必阳，重阳必阴"</li></ul>' +
+        '<h3>五脏阴阳属性表（高频）</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>脏</th><th>位置阴阳</th><th>细分属性</th></tr></thead><tbody>' +
+        '<tr><td>心</td><td>阳</td><td>阳中之阳</td></tr>' +
+        '<tr><td>肺</td><td>阳</td><td>阳中之阴</td></tr>' +
+        '<tr><td>肝</td><td>阴</td><td>阴中之阳</td></tr>' +
+        '<tr><td>脾</td><td>阴（居中）</td><td>阴中之至阴</td></tr>' +
+        '<tr><td>肾</td><td>阴</td><td>阴中之阴</td></tr></tbody></table></div>' +
+        '<h3>五行归类表（节选）</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>五行</th><th>木</th><th>火</th><th>土</th><th>金</th><th>水</th></tr></thead><tbody>' +
+        '<tr><td>五脏</td><td>肝</td><td>心</td><td>脾</td><td>肺</td><td>肾</td></tr>' +
+        '<tr><td>五志</td><td>怒</td><td>喜</td><td>思</td><td>悲</td><td>恐</td></tr>' +
+        '<tr><td>五季</td><td>春</td><td>夏</td><td>长夏</td><td>秋</td><td>冬</td></tr></tbody></table></div>' +
+        '<h3>生克乘侮</h3>' +
+        '<ul><li>相生：木→火→土→金→水→木</li><li>相克：木→土→水→火→金→木</li>' +
+        '<li>相乘＝相克太过（太过乘/不及被乘）；相侮＝反克（气盛反侮/己虚被侮）</li></ul>' +
+        '<div class="callout pitfall">"益火补土法"的"火"特指<strong>命门之火（肾阳）</strong>，不是心火——温肾阳以补脾阳。这是高频送分题里最容易踩的坑。</div>' +
+        '<h3>治法四句（背方向对应）</h3>' +
+        '<ul><li>相生：滋水涵木（补肾阴养肝）、益火补土（温肾阳补脾阳）、培土生金（补脾益肺）、金水相生（滋肺肾之阴）</li>' +
+        '<li>相克：抑木扶土（疏肝健脾）、培土制水（健脾利水）、佐金平木（清肺平肝）、泻南补北（泻心火补肾水）</li></ul>' +
+        '<p class="mnemonic">口诀：阴阳内容——制根感消转；相生治法——滋水涵木、益火补土、培土生金、金水相生。</p>'
+    },
+    {
+      id: "jingqi",
+      title: "精气血津液神",
+      subtitle: "构成与维持生命活动的基本物质",
+      notes:
+        '<h3>气的六大功能</h3><p><strong>推温防固化营</strong>——推动、温煦、防御、固摄、气化、营养。</p>' +
+        '<h3>四种气对比（核心）</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>类别</th><th>生成</th><th>分布</th><th>功能</th></tr></thead><tbody>' +
+        '<tr><td>元气</td><td>肾藏先天之精</td><td>三焦流行全身</td><td>推动生长发育，生命活动原动力</td></tr>' +
+        '<tr><td>宗气</td><td>肺清气+脾胃水谷气</td><td>积于胸中（膻中）</td><td>走息道行呼吸、贯心脉行气血</td></tr>' +
+        '<tr><td>营气</td><td>水谷精气精华</td><td>行于脉中</td><td>化血、营养全身，属阴</td></tr>' +
+        '<tr><td>卫气</td><td>水谷精气慓悍部分</td><td>行于脉外</td><td>温分肉充皮肤司开阖、防御外邪，属阳</td></tr>' +
+        '</tbody></table></div>' +
+        '<h3>血的运行</h3><p>心主血脉（动力）、肺朝百脉（助行）、脾统血（统摄）、肝藏血（调节贮藏）。</p>' +
+        '<h3>津液代谢通路</h3><p>胃纳 → 脾运 → 肺布（通调水道）→ 肾化（气化根本）→ 三焦道路 → 膀胱泄。</p>' +
+        '<div class="callout pitfall">气随血脱（诱因：<strong>大出血</strong>）vs 气随津脱（诱因：<strong>大汗大吐大泻</strong>）——表现相似（气短、汗出、肢冷、脉微欲绝），鉴别关键看诱因。</div>' +
+        '<h3>气血津液关系</h3><ul><li>气为血之帅（生血、行血、摄血）／血为气之母（养气、载气）</li>' +
+        '<li>气能生津、行津、摄津／津能载气</li><li>精血同源、津血同源</li></ul>' +
+        '<p class="mnemonic">口诀：气机失调——滞逆陷闭脱；津液代谢——胃纳脾运肺布肾化，三焦道路膀胱泄。</p>'
+    },
+    {
+      id: "jingluo",
+      title: "经络",
+      subtitle: "十二正经、奇经八脉与经别络脉",
+      notes:
+        '<h3>经络系统组成</h3><p>经脉（十二正经+奇经八脉+十二经别）、络脉（十五别络+浮络+孙络）、连属部分（十二经筋+十二皮部）。</p>' +
+        '<h3>十二经脉走向规律（极高频送分题）</h3>' +
+        '<ul><li>手三阴经——<strong>从胸走手</strong></li><li>手三阳经——<strong>从手走头</strong></li>' +
+        '<li>足三阳经——<strong>从头走足</strong></li><li>足三阴经——<strong>从足走腹（胸）</strong></li></ul>' +
+        '<h3>十二经脉交接规律</h3><ul><li>表里阴阳经交于<strong>四肢末端</strong></li>' +
+        '<li>同名阳经交于<strong>头面部</strong></li><li>相衔接阴经交于<strong>胸中</strong></li></ul>' +
+        '<h3>十二经脉流注次序（必须按顺序背）</h3>' +
+        '<p><strong>肺→大肠→胃→脾→心→小肠→膀胱→肾→心包→三焦→胆→肝</strong>→复归于肺，周而复始。</p>' +
+        '<h3>表里配合关系</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>阴经（属脏）</th><th>阳经（属腑）</th></tr></thead><tbody>' +
+        '<tr><td>手太阴肺</td><td>手阳明大肠</td></tr><tr><td>手少阴心</td><td>手太阳小肠</td></tr>' +
+        '<tr><td>手厥阴心包</td><td>手少阳三焦</td></tr><tr><td>足太阴脾</td><td>足阳明胃</td></tr>' +
+        '<tr><td>足少阴肾</td><td>足太阳膀胱</td></tr><tr><td>足厥阴肝</td><td>足少阳胆</td></tr></tbody></table></div>' +
+        '<h3>奇经八脉</h3><p>督脉、任脉、冲脉、带脉、阴维脉、阳维脉、阴跷脉、阳跷脉——不直属脏腑、无表里配合，"别道奇行"。</p>' +
+        '<ul><li>督脉——行于腰背正中，<strong>"阳脉之海"</strong></li>' +
+        '<li>任脉——行于胸腹正中，<strong>"阴脉之海"</strong>，"任主胞胎"</li>' +
+        '<li>冲脉——与月经生殖密切相关，<strong>"十二经之海／血海"</strong></li>' +
+        '<li>带脉——唯一横向行走，约束纵行诸经</li></ul>' +
+        '<div class="callout pitfall">"阳脉之海"（督脉）／"阴脉之海"（任脉）／"十二经之海·血海"（冲脉）三者称谓极易张冠李戴，是高频送命题。</div>' +
+        '<h3>十二经别 vs 十五别络</h3>' +
+        '<ul><li><strong>十二经别</strong>——深入体腔，加强表里两经在<strong>体内（深部）</strong>的联系，扩大主治范围</li>' +
+        '<li><strong>十五别络</strong>——加强表里两经在<strong>体表（浅部）</strong>的联系，并渗灌气血濡养全身</li></ul>' +
+        '<div class="callout pitfall">一个"入内"一个"走表"：经别管体内深部联系，别络管体表浅部联系，选项常故意调换这两句话设错。</div>' +
+        '<h3>经络的生理功能</h3><p>沟通联系、运行气血、感应传导（针刺"得气"）、调节机能平衡。</p>' +
+        '<p class="mnemonic">口诀：走向——手之三阴从胸走手，手之三阳从手走头，足之三阳从头走足，足之三阴从足走胸；流注——肺大胃脾心小肠，膀肾包焦胆肝详。</p>'
+    },
+    {
+      id: "tizhi",
+      title: "体质",
+      subtitle: "体质的形成、分类与临床应用",
+      notes:
+        '<h3>基本概念</h3><p>体质是先天禀赋与后天获得共同形成的形态结构、生理功能、心理状态方面综合的相对稳定的特质，表现为结构、功能、代谢上的个体差异，以及对疾病的易感性和病变过程中的倾向性。</p>' +
+        '<div class="callout pitfall">体质构成要素是形态结构、生理功能、心理状态三方面差异，不包括社会经济地位等社会性因素——这是常见干扰项。</div>' +
+        '<h3>生理学基础</h3><p>脏腑经络及精气血津液是体质的物质基础；肾为先天之本，是体质形成与发展的根本。</p>' +
+        '<h3>体质的形成因素</h3><ul><li><strong>先天因素（禀赋）</strong>——原始基础，决定体质的<strong>相对稳定性</strong></li>' +
+        '<li><strong>后天因素</strong>（饮食、起居、锻炼、情志、地理、疾病针药等）——决定体质的<strong>可变性、可调性</strong></li></ul>' +
+        '<h3>体质的分类</h3><p>阴阳分类法：正常质（阴阳平和质）、偏阳质（易从阳化热，多热证实证）、偏阴质（易从阴化寒，多寒证虚证）。</p>' +
+        '<p>拓展：王琦九种体质——平和质、气虚质、阳虚质、阴虚质、痰湿质、湿热质、血瘀质、气郁质、特禀质。</p>' +
+        '<h3>"从化"（核心概念）</h3><p>疾病发展过程中，病情随体质发生性质转化的现象，称"从化"——偏阳质易从阳化热，偏阴质易从阴化寒。</p>' +
+        '<div class="callout pitfall">"从化"≠"传变"：从化指病邪性质随体质转化，传变指病位/病证阶段的传移变化，二者概念不同。</div>' +
+        '<h3>体质学说的临床应用</h3><ul><li>说明个体对病因的易感性</li><li>阐释发病原理</li>' +
+        '<li>解释病理变化（从化）</li><li>指导辨证</li><li>指导治疗（因人制宜）</li><li>指导养生防病</li></ul>' +
+        '<div class="callout pitfall">体质不决定疾病的"传染性"——传染性由病邪本身（如疠气）决定，与体质无关，是常见干扰选项。</div>' +
+        '<p class="mnemonic">口诀：体质三要素——形态、机能、心理；先天定基础，后天定可调；偏阳化热，偏阴化寒；六大应用——易感、发病、从化、辨证、治疗、养生。</p>'
+    },
+    {
+      id: "bingyin",
+      title: "病因",
+      subtitle: "六淫、疠气、七情、饮食劳逸与病理产物性病因",
+      notes:
+        '<h3>病因分类</h3><p>外感病因（六淫、疠气）、内伤病因（七情、饮食失宜、劳逸失度）、病理产物性病因（痰饮、瘀血、结石）、其他病因（外伤、诸虫、药邪、医过、先天）。</p>' +
+        '<h3>六淫各邪性质与致病特点（全章最高频）</h3>' +
+        '<ul>' +
+        '<li><strong>风邪</strong>——轻扬开泄易袭阳位；<strong>善行数变</strong>；主动（眩晕震颤抽搐）；<strong>为百病之长</strong>，常为他邪致病先导</li>' +
+        '<li><strong>寒邪</strong>——易伤阳气；性<strong>凝滞</strong>（不通则痛）；性<strong>收引</strong>（腠理闭塞、筋脉拘急）</li>' +
+        '<li><strong>暑邪</strong>——其性炎热；<strong>升散，扰神耗气伤津</strong>；多挟湿</li>' +
+        '<li><strong>湿邪</strong>——易伤阳气、阻遏气机（尤困脾阳）；性<strong>重浊</strong>；性<strong>黏滞</strong>（病程缠绵）；性<strong>趋下</strong>易袭阴位</li>' +
+        '<li><strong>燥邪</strong>——干涩<strong>易伤津液</strong>；<strong>易伤肺</strong>（肺为娇脏喜润恶燥）；分温燥凉燥</li>' +
+        '<li><strong>火（热）邪</strong>——其性<strong>趋上</strong>；<strong>耗气伤津</strong>（壮火食气）；<strong>生风动血</strong>；易致肿疡；扰乱心神</li>' +
+        '</ul>' +
+        '<div class="callout pitfall">暑邪纯属外邪，具有明显季节性（仅发于夏季），没有"暑邪内生"一说——这是常考的送命题。</div>' +
+        '<h3>疠气</h3><p>又称瘟疫病邪、疫毒、异气。致病特点：发病急骤、病情危笃；传染性强、易于流行；<strong>一气一病，症状相似</strong>。</p>' +
+        '<h3>七情内伤——影响脏腑气机（★极高频，逐条精确对应）</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>情志</th><th>气机变化</th><th>典型表现</th></tr></thead><tbody>' +
+        '<tr><td>怒</td><td>怒则气上</td><td>肝气上逆——面红目赤、呕血，甚则昏厥</td></tr>' +
+        '<tr><td>喜</td><td>喜则气缓</td><td>心气涣散，甚则暴脱——精神不集中，甚则失神</td></tr>' +
+        '<tr><td>悲</td><td>悲则气消</td><td>肺气耗伤——气短乏力、精神萎靡</td></tr>' +
+        '<tr><td>恐</td><td>恐则气下</td><td>肾气不固——二便失禁，甚则遗精</td></tr>' +
+        '<tr><td>惊</td><td>惊则气乱</td><td>心无所倚——惊慌失措、心悸不宁</td></tr>' +
+        '<tr><td>思</td><td>思则气结</td><td>脾气郁结——纳呆、脘腹胀闷</td></tr>' +
+        '</tbody></table></div>' +
+        '<div class="callout pitfall">六淫从口鼻肌表侵入人体（外感）；七情直接损伤脏腑气机（内伤），不经体表传入——二者致病途径本质不同。</div>' +
+        '<h3>饮食失宜与劳逸失度</h3><p>饮食不节（过饥过饱）、饮食不洁、饮食偏嗜；过劳（劳力伤气、劳神伤心脾、房劳伤肾精）、过逸（气血不畅、脾胃呆滞）。</p>' +
+        '<h3>病理产物性病因</h3>' +
+        '<p><strong>痰饮</strong>——稠者为痰稀者为饮，肺脾肾三焦气化失常所致，致病广泛变化多端，"百病多由痰作祟"。</p>' +
+        '<p><strong>瘀血致病共同特征</strong>——疼痛（刺痛拒按痛处固定）、肿块（固定不移）、出血（色紫暗夹血块）、色紫暗（面色黧黑、唇甲青紫、舌质紫暗有瘀斑）。</p>' +
+        '<p><strong>结石</strong>——湿热浊邪蕴结煎熬而成，多发于肝胆脾胃泌尿系统等空腔器官。</p>' +
+        '<p class="mnemonic">口诀：六淫性质——风善行主动百病长，寒凝滞收引，暑炎热升散兼湿无内暑，湿重浊黏滞趋下，燥干涩伤津又伤肺，火燔灼趋上生风又动血；七情气机——怒上喜缓悲则消，恐下惊乱思则结；瘀血四证——痛块血色。</p>'
+    },
+    {
+      id: "fabing",
+      title: "发病",
+      subtitle: "正邪相搏与发病类型",
+      notes:
+        '<h3>发病的基本原理</h3>' +
+        '<p><strong>正气不足是疾病发生的内在根据</strong>——"正气存内，邪不可干"；<strong>邪气是发病的重要条件</strong>——"邪之所凑，其气必虚"（疠气、外伤、中毒等特殊病邪，邪气可起主导作用）；正邪相搏的胜负决定发病与否。</p>' +
+        '<div class="callout pitfall">正气不足是"内在根据"（决定性），邪气是"重要条件"（一般不单独决定发病），选择题常把二者表述互换设错。</div>' +
+        '<h3>影响发病的因素</h3><p>环境因素（气候地域环境）、体质因素（决定易感性与从化方向）、精神状态（情志舒畅正气旺盛）。</p>' +
+        '<h3>发病类型（★★五种类型必须相互区分）</h3>' +
+        '<div class="table-wrap"><table><thead><tr><th>类型</th><th>特点</th><th>举例</th></tr></thead><tbody>' +
+        '<tr><td>感邪即发</td><td>感邪后立即发病，急骤</td><td>情志剧变、疠气、中毒、外伤</td></tr>' +
+        '<tr><td>徐发</td><td>邪轻正衰，渐进性缓慢起病，无潜伏期</td><td>痨瘀、痹证</td></tr>' +
+        '<tr><td>伏而后发</td><td>邪气潜伏，有明确潜伏期，逾时而发</td><td>伏气温病、破伤风、狂犬病</td></tr>' +
+        '<tr><td>继发</td><td>在原有疾病基础上继发新病证</td><td>肝阳上亢继发中风、久疟致疟母</td></tr>' +
+        '<tr><td>复发</td><td>缓解期因诱因再度发作</td><td>见下方诱因</td></tr>' +
+        '</tbody></table></div>' +
+        '<div class="callout pitfall">徐发是"渐进过程"，没有潜伏期；伏而后发是"先潜伏、后突发"，有明确潜伏期，发病瞬间往往较急——二者常被互换设错。</div>' +
+        '<h3>复发的常见诱因</h3><p><strong>食复</strong>（饮食不当）、<strong>劳复</strong>（过劳或早犯房事）、<strong>药复</strong>（用药不当）、<strong>感邪复发</strong>（重感新邪），情志因素也可诱发。</p>' +
+        '<p class="mnemonic">口诀：正气为本，邪气为标，正邪相搏定发病；五种类型——卒发急骤，徐发渐进，伏发有潜伏期，继发接原病，复发有诱因（食劳药感）。</p>'
+    }
+  ];
+
+  // type: A1 / A2 (single-answer) or X (multi-answer)
+  var QUESTIONS = [
+    { id:"q1", ch:"zangxiang", type:"A1", stem:'被称为"孤府"的是：',
+      options:[["A","三焦"],["B","胆"],["C","膀胱"],["D","命门"],["E","胞宫"]],
+      answer:["B"], tag:"胆为孤府/奇恒之腑属性",
+      explain:'胆是六腑中唯一内藏"精汁"、不直接传化水谷糟粕的腑，兼有脏的储藏特性，故称"孤府"。' },
+    { id:"q2", ch:"zangxiang", type:"A1", stem:'"水火既济"主要体现的是哪两脏之间的关系：',
+      options:[["A","心与肺"],["B","心与肾"],["C","肝与肾"],["D","脾与肾"],["E","心与脾"]],
+      answer:["B"], tag:"心肾相交（水火既济）",
+      explain:"心属火居上，肾属水居下，心火下降温肾水、肾水上济润心火，动态平衡即水火既济。" },
+    { id:"q3", ch:"zangxiang", type:"A2", stem:"患者情志抑郁，胁肋胀痛，善太息，脉弦。此病机应归属于：",
+      options:[["A","肝主疏泄失常"],["B","肝主藏血失常"],["C","肝主筋失常"],["D","肝开窍于目失常"],["E","肝在志为怒失常"]],
+      answer:["A"], tag:"肝主疏泄",
+      explain:"情志抑郁、胁肋胀痛、善太息、脉弦是肝气郁结（疏泄失常）的典型表现。" },
+    { id:"q4", ch:"zangxiang", type:"X", stem:'下列属于"奇恒之腑"的是：',
+      options:[["A","脑"],["B","髓"],["C","脉"],["D","女子胞"],["E","三焦"]],
+      answer:["A","B","C","D"], tag:"奇恒之腑范围",
+      explain:"奇恒之腑为脑、髓、骨、脉、胆、女子胞。三焦属六腑，不是奇恒之腑，是常见干扰项。" },
+    { id:"q5", ch:"zangxiang", type:"A1", stem:"脾主升清与胃主降浊的关系描述，错误的是：",
+      options:[["A","脾气主升，以升为顺"],["B","胃气主降，以降为和"],["C","脾胃升降相因，共为后天之本"],
+                ["D","脾主升清指清阳之气须依赖脾气推动上输于头目"],["E","胃主降浊指饮食物的消化吸收全赖胃的通降功能，与脾无关"]],
+      answer:["E"], tag:"脾主升清/胃主降浊（脾胃升降相因）",
+      explain:'脾胃"升降相因"，胃的通降有赖脾气升清配合，二者相互依存，说"与脾无关"是错误表述。' },
+
+    { id:"q6", ch:"yinyang", type:"A1", stem:'"阴中之至阴"指的是：',
+      options:[["A","心"],["B","肺"],["C","肝"],["D","脾"],["E","肾"]],
+      answer:["D"], tag:"五脏阴阳属性归类",
+      explain:'脾属土居中，是"阴中之至阴"；肾才是"阴中之阴"，二者极易混淆。' },
+    { id:"q7", ch:"yinyang", type:"A1", stem:'"益火补土法"中的"火"具体指：',
+      options:[["A","心火"],["B","命门之火（肾阳）"],["C","相火"],["D","君火"],["E","三焦之火"]],
+      answer:["B"], tag:"五行相生治法（益火补土等）脏腑指向",
+      explain:"益火补土＝温肾阳以补脾阳，体现肾（命门火）对脾土的资生，不是心火生脾土。" },
+    { id:"q8", ch:"yinyang", type:"A2", stem:"患者素体脾虚，因情志不遂后出现胸胁胀满、纳呆便溏、脉弦，此病机传变属于：",
+      options:[["A","木火刑金"],["B","木乘土"],["C","土壅木郁"],["D","水不涵木"],["E","子病犯母"]],
+      answer:["B"], tag:"五行相乘（木乘土/土虚木乘）",
+      explain:'脾虚在先、肝郁在后，肝木过度克伐已虚的脾土，属"木乘土"（土虚木乘属相乘范畴）。' },
+    { id:"q9", ch:"yinyang", type:"X", stem:'属于阴阳"相互转化"规律的病理表现是：',
+      options:[["A","寒极生热"],["B","热极生寒"],["C","阴虚则热"],["D","由实转虚、由阳转阴"],["E","阳胜则阴病"]],
+      answer:["A","B","D"], tag:"阴阳相互转化 vs 偏盛偏衰 辨析",
+      explain:"寒极生热、热极生寒、由实转虚都是质变（转化）；阴虚则热属偏衰，阳胜则阴病属偏盛，都不是转化。" },
+    { id:"q10", ch:"yinyang", type:"A1", stem:'"见肝之病，知肝传脾，当先实脾"所体现的五行传变规律是：',
+      options:[["A","母病及子"],["B","子病及母"],["C","相乘"],["D","相侮"],["E","制化"]],
+      answer:["C"], tag:"五行传变——见肝之病知肝传脾",
+      explain:"肝病传脾，肝木过度克制脾土，属五行相乘的传变规律。" },
+
+    { id:"q11", ch:"jingqi", type:"A1", stem:'具有"温分肉、充皮肤、肥腠理、司开阖"功能的是：',
+      options:[["A","元气"],["B","宗气"],["C","营气"],["D","卫气"],["E","中气"]],
+      answer:["D"], tag:"卫气的功能与分布",
+      explain:"卫气行于脉外，慓疾滑利，温煦肌表、控制汗孔开合、防御外邪。" },
+    { id:"q12", ch:"jingqi", type:"A1", stem:"大出血患者常同时出现气短、汗出、肢冷、脉微欲绝，此病机是：",
+      options:[["A","气随津脱"],["B","气随血脱"],["C","精气虚脱"],["D","气血两虚"],["E","阴阳两虚"]],
+      answer:["B"], tag:"气随血脱 vs 气随津脱 辨析",
+      explain:"诱因是失血，血为气之母，血脱则气失依附而随血外脱，属气随血脱；气随津脱的诱因是大汗大吐大泻。" },
+    { id:"q13", ch:"jingqi", type:"A2", stem:"患者素体气虚，症见胃下垂、脱肛、久泻不止，其病机属气的哪项功能失常：",
+      options:[["A","推动作用减退"],["B","温煦作用减退"],["C","防御作用减退"],["D","固摄作用减退"],["E","气化作用减退"]],
+      answer:["D"], tag:"气的固摄作用（脏器下垂/久泻）",
+      explain:"固摄作用减退表现为脏器位置不固（下垂脱肛）、统摄无力（久泻不止）。" },
+    { id:"q14", ch:"jingqi", type:"X", stem:'下列属于"津"的特点的是：',
+      options:[["A","质地清稀"],["B","流动性大"],["C","布散于皮肤肌肉孔窍"],["D","灌注于骨节脏腑脑髓"],["E","渗入血脉"]],
+      answer:["A","B","C","E"], tag:"津的特点（清稀/布散体表）",
+      explain:"津清稀流动性大，布散体表孔窍并渗入血脉；D是液的特点——液稠厚灌注骨节脏腑脑髓。" },
+    { id:"q15", ch:"jingqi", type:"A1", stem:"积于胸中，走息道以行呼吸、贯心脉以行气血的是：",
+      options:[["A","元气"],["B","宗气"],["C","营气"],["D","卫气"],["E","原气"]],
+      answer:["B"], tag:"宗气的分布与功能",
+      explain:"宗气由肺清气+脾胃水谷气结合而成，积于胸中膻中，主管呼吸与助心行血。" },
+
+    { id:"q16", ch:"jingluo", type:"A1", stem:"十二经脉中，走向为「从头走足」的是：",
+      options:[["A","手三阴经"],["B","手三阳经"],["C","足三阳经"],["D","足三阴经"],["E","以上都不是"]],
+      answer:["C"], tag:"十二经脉走向规律",
+      explain:"手三阴从胸走手，手三阳从手走头，足三阳从头走足，足三阴从足走腹（胸）。" },
+    { id:"q17", ch:"jingluo", type:"A1", stem:"十二经脉流注次序中，手太阴肺经之后接续的是：",
+      options:[["A","足阳明胃经"],["B","足太阴脾经"],["C","手阳明大肠经"],["D","手少阴心经"],["E","手厥阴心包经"]],
+      answer:["C"], tag:"十二经脉流注次序",
+      explain:"流注次序：肺→大肠→胃→脾→心→小肠→膀胱→肾→心包→三焦→胆→肝，肺经之后是大肠经。" },
+    { id:"q18", ch:"jingluo", type:"A2", stem:"患者月经量少、经期紊乱，中医辨证与冲脉功能失常关系密切，冲脉又被称为：",
+      options:[["A","阳脉之海"],["B","阴脉之海"],["C","十二经之海（血海）"],["D","气海"],["E","后天之本"]],
+      answer:["C"], tag:"奇经八脉——督任冲功能辨析",
+      explain:"冲脉与女子月经、生殖功能密切相关，称「十二经之海」或「血海」；督脉为阳脉之海，任脉为阴脉之海，二者与本题诱因不符。" },
+    { id:"q19", ch:"jingluo", type:"X", stem:"下列属于奇经八脉的是：",
+      options:[["A","督脉"],["B","任脉"],["C","带脉"],["D","阴维脉"],["E","手厥阴心包经"]],
+      answer:["A","B","C","D"], tag:"奇经八脉范围",
+      explain:"奇经八脉为督、任、冲、带、阴维、阳维、阴跷、阳跷。手厥阴心包经属十二正经，不是奇经八脉，是常见干扰项。" },
+    { id:"q20", ch:"jingluo", type:"A1", stem:"十二经别的主要作用是：",
+      options:[["A","加强十二经脉在体表的联系"],["B","加强表里两经在体内（深部）的联系，扩大主治范围"],
+                ["C","约束纵行诸经"],["D","调节十二经脉气血盛衰"],["E","主司眼睑开合"]],
+      answer:["B"], tag:"十二经别与十五别络辨析",
+      explain:"十二经别深入体腔，加强表里两经在体内深部的联系；加强体表浅部联系的是十五别络，二者常被混淆设错。" },
+
+    { id:"q21", ch:"tizhi", type:"A1", stem:"决定体质相对稳定性的主要因素是：",
+      options:[["A","饮食营养"],["B","先天禀赋"],["C","精神情志"],["D","地理环境"],["E","生活起居"]],
+      answer:["B"], tag:"体质形成的先后天因素",
+      explain:"先天禀赋是形成体质的原始基础，决定体质的相对稳定性；后天因素（饮食、起居、情志等）决定体质的可变性、可调性。" },
+    { id:"q22", ch:"tizhi", type:"A1", stem:"体质学说中，疾病发展过程中病情随体质发生性质转化的现象称为：",
+      options:[["A","传变"],["B","转化"],["C","从化"],["D","演变"],["E","兼夹"]],
+      answer:["C"], tag:"从化的概念",
+      explain:'这种随体质发生性质转化的现象专称"从化"，不同于指病位病证阶段传移变化的"传变"。' },
+    { id:"q23", ch:"tizhi", type:"A2", stem:"患者素体阳盛，感受外邪后多表现为：",
+      options:[["A","实寒证"],["B","虚寒证"],["C","实热证"],["D","虚热证"],["E","寒热错杂证"]],
+      answer:["C"], tag:"从化——偏阳质/偏阴质倾向",
+      explain:"偏阳质者代谢偏亢，感邪后易从阳化热，多表现为热证、实证。" },
+    { id:"q24", ch:"tizhi", type:"X", stem:"体质学说的临床应用包括：",
+      options:[["A","说明个体对病邪的易感性"],["B","阐释发病原理"],["C","指导辨证"],["D","指导治疗（因人制宜）"],["E","决定疾病的传染性"]],
+      answer:["A","B","C","D"], tag:"体质学说的临床应用",
+      explain:"体质学说可说明易感性、阐释发病、指导辨证治疗养生；但疾病的传染性由病邪本身（如疠气）决定，与体质无关，是常见干扰项。" },
+    { id:"q25", ch:"tizhi", type:"A1", stem:"下列关于体质构成要素的说法，错误的是：",
+      options:[["A","形态结构的差异性"],["B","生理功能的差异性"],["C","心理特征的差异性"],["D","社会经济地位的差异性"],["E","对疾病的易感性和病变的倾向性"]],
+      answer:["D"], tag:"体质的构成要素",
+      explain:"体质构成要素是形态结构、生理功能、心理状态的差异，以及对疾病的易感性和倾向性；社会经济地位不属于体质构成要素，只是可能影响体质的社会性因素。" },
+
+    { id:"q26", ch:"bingyin", type:"A1", stem:'"风为百病之长"主要体现在：',
+      options:[["A","风性主动"],["B","风性开泄"],["C","风性善行数变"],["D","风邪易与他邪相合致病，为外邪致病的先导"],["E","风为阳邪"]],
+      answer:["D"], tag:"风邪的性质与致病特点",
+      explain:"风邪易与寒、湿、热等邪相合为患（风寒、风湿、风热），六淫致病常以风为先导，故称风为百病之长。" },
+    { id:"q27", ch:"bingyin", type:"A1", stem:"具有「凝滞、收引」特性的邪气是：",
+      options:[["A","风邪"],["B","寒邪"],["C","暑邪"],["D","湿邪"],["E","燥邪"]],
+      answer:["B"], tag:"寒邪的性质与致病特点",
+      explain:"寒性凝滞致气血津液凝结阻滞、不通则痛；寒性收引致腠理闭塞、经络筋脉拘急。" },
+    { id:"q28", ch:"bingyin", type:"A1", stem:"下列关于暑邪的说法，错误的是：",
+      options:[["A","暑为阳邪，其性炎热"],["B","暑性升散，易扰神耗气伤津"],["C","暑多挟湿"],["D","暑邪纯属外邪，无内暑之说"],["E","暑邪四季均可发生，无明显季节性"]],
+      answer:["E"], tag:"暑邪的性质与致病特点",
+      explain:"暑邪具有明显的季节性，只发生于夏季，这是暑邪区别于其他外感邪气的重要特点，E项说法错误。" },
+    { id:"q29", ch:"bingyin", type:"A1", stem:'"湿性黏滞"主要表现为：',
+      options:[["A","病位游移不定"],["B","症状黏腻不爽、病程缠绵难愈"],["C","疼痛剧烈拒按"],["D","燔灼趋上"],["E","干涩少津"]],
+      answer:["B"], tag:"湿邪的性质与致病特点",
+      explain:"湿性黏滞指湿邪致病症状多黏腻不爽（如大便黏滞、舌苔黏腻）、病程缠绵难愈。" },
+    { id:"q30", ch:"bingyin", type:"A1", stem:"燥邪最易损伤的脏是：",
+      options:[["A","心"],["B","肺"],["C","脾"],["D","肝"],["E","肾"]],
+      answer:["B"], tag:"燥邪易伤肺",
+      explain:"肺为娇脏，喜润恶燥，且与外界大气直接相通，故燥邪最易伤肺，见干咳少痰、痰黏难咳。" },
+    { id:"q31", ch:"bingyin", type:"A1", stem:'"壮火食气"体现了火邪的哪一致病特点：',
+      options:[["A","生风动血"],["B","耗气伤津"],["C","易致肿疡"],["D","扰乱心神"],["E","燔灼趋上"]],
+      answer:["B"], tag:"火邪耗气伤津",
+      explain:'"壮火食气"指火热之邪易迫津外泄、消灼阴精，进而耗伤人体正气，属火邪耗气伤津的致病特点。' },
+    { id:"q32", ch:"bingyin", type:"A1", stem:"疠气致病特点，下列说法错误的是：",
+      options:[["A","发病急骤，病情危笃"],["B","传染性强，易于流行"],["C","一气一病，症状相似"],["D","致病力强，无问老少强弱触之皆病"],["E","须先有七情内伤基础才会感邪发病"]],
+      answer:["E"], tag:"疠气的致病特点",
+      explain:"疠气属外感病邪，其致病不需要以七情内伤为前提，正气充足者感受疠气仍可能发病，E项说法错误。" },
+    { id:"q33", ch:"bingyin", type:"A2", stem:"患者暴怒之后突然出现面红目赤、呕血，甚则昏厥，其病机是：",
+      options:[["A","怒则气上"],["B","思则气结"],["C","恐则气下"],["D","悲则气消"],["E","惊则气乱"]],
+      answer:["A"], tag:"七情内伤——气机变化对应",
+      explain:"大怒致肝气上逆，血随气逆并走于上，故见面红目赤、呕血，甚则昏厥卒倒，属「怒则气上」。" },
+    { id:"q34", ch:"bingyin", type:"X", stem:"瘀血致病的常见表现包括：",
+      options:[["A","疼痛拒按且痛处固定"],["B","肿块推之不移"],["C","出血色紫暗夹血块"],["D","面色红润有光泽"],["E","舌质紫暗或有瘀斑瘀点"]],
+      answer:["A","B","C","E"], tag:"瘀血致病的共同特征",
+      explain:"瘀血致病共同特征为痛（刺痛拒按固定）、块（固定不移）、血（色紫暗夹块）、色紫暗（面色黧黑、唇甲青紫、舌紫暗有瘀斑）；D「面色红润有光泽」与瘀血表现相反，是干扰项。" },
+    { id:"q35", ch:"bingyin", type:"A1", stem:"六淫与七情致病途径的主要区别是：",
+      options:[["A","六淫从口鼻肌表侵入人体，七情直接损伤脏腑气机"],["B","六淫伤阳，七情伤阴"],
+                ["C","六淫致病缓，七情致病急"],["D","六淫无季节性，七情有季节性"],["E","六淫只伤形体，七情只伤内脏"]],
+      answer:["A"], tag:"六淫与七情的致病途径辨析",
+      explain:"六淫属外感病邪，从口鼻或肌表侵入人体；七情属内伤病因，不经体表传入，直接影响脏腑气机而致病，二者致病途径本质不同。" },
+
+    { id:"q36", ch:"fabing", type:"A1", stem:'"正气存内，邪不可干"主要说明：',
+      options:[["A","邪气是发病的重要条件"],["B","正气不足是疾病发生的内在根据"],["C","正邪相搏决定证候性质"],["D","体质决定发病倾向"],["E","精神状态影响发病"]],
+      answer:["B"], tag:"正邪相搏与发病",
+      explain:"「正气存内，邪不可干」强调正气充足则邪气难以侵犯致病，说明正气不足是疾病发生的内在根据。" },
+    { id:"q37", ch:"fabing", type:"A1", stem:'下列属于疾病"徐发"特点的是：',
+      options:[["A","感邪后立即发病，发病急骤"],["B","邪气伏藏体内，逾时而发"],["C","邪气轻微、正气渐衰，渐进性缓慢起病"],["D","在原有疾病基础上继发新病"],["E","疾病初愈后因诱因复发"]],
+      answer:["C"], tag:"发病类型——徐发",
+      explain:"徐发指邪气轻微或正气渐衰，缓慢起病、渐进性发展，如痨瘀、痹证等慢性病。" },
+    { id:"q38", ch:"fabing", type:"A2", stem:"患者感受风寒后症状当时未显，数日后突然发热恶寒、咳嗽，此发病类型属于：",
+      options:[["A","感邪即发"],["B","徐发"],["C","伏而后发"],["D","继发"],["E","复发"]],
+      answer:["C"], tag:"发病类型——伏而后发",
+      explain:"感邪后未即刻发病，经过一段潜伏期后突然发作，属「伏而后发」，与徐发的渐进性起病不同。" },
+    { id:"q39", ch:"fabing", type:"A1", stem:"患者肝阳上亢日久，继而突发中风偏瘫，此发病类型属于：",
+      options:[["A","感邪即发"],["B","徐发"],["C","伏而后发"],["D","继发"],["E","复发"]],
+      answer:["D"], tag:"发病类型——继发",
+      explain:"在原有疾病（肝阳上亢）基础上继而发生新的病证（中风），属「继发」。" },
+    { id:"q40", ch:"fabing", type:"X", stem:"疾病复发的常见诱因包括：",
+      options:[["A","食复"],["B","劳复"],["C","药复"],["D","重感新邪"],["E","体质偏阳"]],
+      answer:["A","B","C","D"], tag:"复发的常见诱因",
+      explain:"复发常见诱因为食复（饮食不当）、劳复（过劳或早犯房事）、药复（用药不当）、重感新邪；体质偏阳属易感性/从化因素，不属于复发诱因，是干扰项。" },
+    { id:"q41", ch:"fabing", type:"A1", stem:"徐发与伏而后发的主要区别是：",
+      options:[["A","徐发有明确潜伏期，伏而后发无潜伏期"],["B","徐发是渐进性缓慢起病过程，伏而后发是邪气潜伏后突然发病"],
+                ["C","徐发病情重，伏而后发病情轻"],["D","徐发见于外感病，伏而后发只见于内伤病"],["E","二者没有区别"]],
+      answer:["B"], tag:"徐发与伏而后发辨析",
+      explain:"徐发没有潜伏期概念，是渐进性缓慢起病；伏而后发有明确潜伏期，邪气潜伏后突然发作，二者常被出题人互换设错。" },
+
+    // ---- 变式题（专供"复盘"，不重复原题面）----
+    { id:"v6a", ch:"yinyang", type:"A1", stem:'"阳中之阴"指的是：',
+      options:[["A","心"],["B","肺"],["C","肝"],["D","脾"],["E","肾"]],
+      answer:["B"], tag:"五脏阴阳属性归类",
+      explain:"肺居上属阳，但肺属金主肃降、性偏凉润，为阳中之阴；心才是阳中之阳。" , variant:true},
+    { id:"v6b", ch:"yinyang", type:"A1", stem:"就五脏阴阳属性而言，肾归属于：",
+      options:[["A","阳中之阳"],["B","阳中之阴"],["C","阴中之阳"],["D","阴中之至阴"],["E","阴中之阴"]],
+      answer:["E"], tag:"五脏阴阳属性归类",
+      explain:'肾位居下属阴，主藏精、性属水，为"阴中之阴"；"阴中之至阴"专指脾。', variant:true },
+    { id:"v7a", ch:"yinyang", type:"A1", stem:'"滋水涵木法"适用于下列何证：',
+      options:[["A","脾肾阳虚证"],["B","肾阴亏虚，肝阴不足证"],["C","心肾不交证"],["D","肺肾阴虚证"],["E","肝郁脾虚证"]],
+      answer:["B"], tag:"五行相生治法（益火补土等）脏腑指向",
+      explain:"滋水涵木＝滋肾阴以养肝阴，用于肾阴亏虚不能滋养肝阴导致的肝阴不足证。", variant:true },
+    { id:"v7b", ch:"yinyang", type:"A1", stem:'"培土生金法"体现的是哪两脏之间的相生关系：',
+      options:[["A","心生脾"],["B","脾生肺"],["C","肺生肾"],["D","肾生肝"],["E","肝生心"]],
+      answer:["B"], tag:"五行相生治法（益火补土等）脏腑指向",
+      explain:"培土生金＝补脾益气以助肺气，体现脾土生肺金的相生关系。", variant:true },
+    { id:"v12a", ch:"jingqi", type:"A1", stem:'引起"气随津脱"的常见病因是：',
+      options:[["A","严重创伤大量出血"],["B","大汗、大吐、大泻"],["C","情志过激"],["D","饮食劳倦"],["E","外感六淫"]],
+      answer:["B"], tag:"气随血脱 vs 气随津脱 辨析",
+      explain:"气随津脱由津液大量丢失（大汗大吐大泻）引起，气失津液的承载而随之外泄。", variant:true },
+    { id:"v12b", ch:"jingqi", type:"A1", stem:'引起"气随血脱"的常见病因是：',
+      options:[["A","大汗不止"],["B","呕吐腹泻过度"],["C","严重创伤、大量出血"],["D","久病耗气"],["E","劳倦过度"]],
+      answer:["C"], tag:"气随血脱 vs 气随津脱 辨析",
+      explain:"气随血脱由大量出血引起，血为气之母，血脱则气无所附而随血外脱。", variant:true }
+  ];
+
+  var TAG_ORDER = [];
+  QUESTIONS.forEach(function (q) { if (TAG_ORDER.indexOf(q.tag) === -1) TAG_ORDER.push(q.tag); });
+
+  var SEED_STATS = {
+    "胆为孤府/奇恒之腑属性": {seen:1, correct:1, streak:1},
+    "心肾相交（水火既济）": {seen:1, correct:1, streak:1},
+    "肝主疏泄": {seen:1, correct:1, streak:1},
+    "奇恒之腑范围": {seen:1, correct:1, streak:1},
+    "脾主升清/胃主降浊（脾胃升降相因）": {seen:1, correct:1, streak:1},
+    "五脏阴阳属性归类": {seen:1, correct:0, streak:0},
+    "五行相生治法（益火补土等）脏腑指向": {seen:1, correct:0, streak:0},
+    "五行相乘（木乘土/土虚木乘）": {seen:1, correct:1, streak:1},
+    "阴阳相互转化 vs 偏盛偏衰 辨析": {seen:1, correct:1, streak:1},
+    "五行传变——见肝之病知肝传脾": {seen:1, correct:1, streak:1},
+    "卫气的功能与分布": {seen:1, correct:1, streak:1},
+    "气随血脱 vs 气随津脱 辨析": {seen:1, correct:0, streak:0},
+    "气的固摄作用（脏器下垂/久泻）": {seen:1, correct:1, streak:1},
+    "津的特点（清稀/布散体表）": {seen:1, correct:1, streak:1},
+    "宗气的分布与功能": {seen:1, correct:1, streak:1}
+  };
+
+  var STORE_KEY = "xijinglu_307_stats_v1";
+
+  function loadStats() {
+    try {
+      var raw = localStorage.getItem(STORE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    var init = {};
+    TAG_ORDER.forEach(function (t) { init[t] = Object.assign({}, SEED_STATS[t] || {seen:0, correct:0, streak:0}); });
+    saveStats(init);
+    return init;
+  }
+  function saveStats(s) {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  var stats = loadStats();
+
+  function tagStatus(t) {
+    var s = stats[t] || {seen:0, correct:0, streak:0};
+    if (s.seen === 0) return "new";
+    if (s.streak >= 2) return "mastered";
+    if (s.correct > 0) return "partial";
+    return "weak";
+  }
+  function tagAccuracy(t) {
+    var s = stats[t] || {seen:0, correct:0};
+    if (!s.seen) return null;
+    return s.correct / s.seen;
+  }
+
+  var content = document.getElementById("content");
+  var chapterNav = document.getElementById("chapterNav");
+  var currentView = { mode: "chapter", chapterId: CHAPTERS[0].id };
+
+  function renderNav() {
+    chapterNav.innerHTML = "";
+    CHAPTERS.forEach(function (ch) {
+      var tags = QUESTIONS.filter(function (q) { return q.ch === ch.id && !q.variant; })
+                           .map(function (q) { return q.tag; });
+      var uniqueTags = tags.filter(function (t, i) { return tags.indexOf(t) === i; });
+      var mastered = uniqueTags.filter(function (t) { return tagStatus(t) === "mastered"; }).length;
+      var worst = uniqueTags.reduce(function (acc, t) {
+        var st = tagStatus(t);
+        var rank = { weak: 0, partial: 1, mastered: 2, "new": 3 };
+        return rank[st] < rank[acc] ? st : acc;
+      }, "new");
+      var dotClass = worst === "weak" ? "weak" : worst === "partial" ? "partial" : worst === "mastered" ? "mastered" : "";
+
+      var li = document.createElement("li");
+      var btn = document.createElement("button");
+      btn.className = "nav-btn" + (currentView.mode === "chapter" && currentView.chapterId === ch.id ? " active" : "");
+      btn.innerHTML =
+        '<span class="dot ' + dotClass + '"></span>' +
+        '<span class="label">' + ch.title + '<small>' + ch.subtitle + '</small></span>' +
+        '<span class="frac tabular">' + mastered + '/' + uniqueTags.length + '</span>';
+      btn.addEventListener("click", function () {
+        currentView = { mode: "chapter", chapterId: ch.id };
+        render();
+      });
+      li.appendChild(btn);
+      chapterNav.appendChild(li);
+    });
+
+    document.getElementById("btnReview").className = "nav-btn" + (currentView.mode === "review" ? " active" : "");
+    document.getElementById("btnWeak").className = "nav-btn" + (currentView.mode === "weak" ? " active" : "");
+  }
+
+  document.getElementById("btnReview").addEventListener("click", function () {
+    currentView = { mode: "review" };
+    render();
+  });
+  document.getElementById("btnWeak").addEventListener("click", function () {
+    currentView = { mode: "weak" };
+    render();
+  });
+
+  function renderMasterySummary() {
+    var mastered = TAG_ORDER.filter(function (t) { return tagStatus(t) === "mastered"; }).length;
+    document.getElementById("masterySummary").textContent = mastered + " / " + TAG_ORDER.length;
+    document.getElementById("masteryBar").style.width = (TAG_ORDER.length ? (mastered / TAG_ORDER.length * 100) : 0) + "%";
+  }
+
+  function renderStatsTable() {
+    var body = document.getElementById("statsBody");
+    body.innerHTML = "";
+    TAG_ORDER.forEach(function (t) {
+      var s = stats[t] || {seen:0, correct:0, streak:0};
+      var acc = tagAccuracy(t);
+      var status = tagStatus(t);
+      var statusLabel = { mastered: "已掌握", partial: "待巩固", weak: "薄弱", "new": "未测" }[status];
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>" + t + "</td>" +
+        '<td class="tabular">' + s.seen + "</td>" +
+        '<td class="tabular">' + s.correct + "</td>" +
+        '<td class="tabular">' + (acc === null ? "—" : Math.round(acc * 100) + "%") + "</td>" +
+        '<td><span class="status-pill ' + status + '">' + statusLabel + "</span></td>";
+      body.appendChild(tr);
+    });
+  }
+
+  function optionLetter(pair) { return pair[0]; }
+  function optionText(pair) { return pair[1]; }
+
+  function buildQuizCards(questions, container, onAllGraded) {
+    var form = document.createElement("div");
+    var graded = {};
+
+    questions.forEach(function (q, idx) {
+      var card = document.createElement("div");
+      card.className = "card q-card";
+      var typeChipClass = q.type === "X" ? "chip type-x" : q.type === "A2" ? "chip type-a2" : "chip";
+      var typeLabel = q.type === "X" ? "X型 · 多选" : q.type === "A2" ? "A2型 · 病例" : "A1型 · 单选";
+
+      var meta = document.createElement("div");
+      meta.className = "quiz-meta";
+      meta.innerHTML = "<span class=\"" + typeChipClass + "\">" + typeLabel + "</span>" +
+        "<span class=\"chip\">第 " + (idx + 1) + " 题</span>";
+      card.appendChild(meta);
+
+      var stem = document.createElement("div");
+      stem.className = "stem";
+      stem.textContent = (idx + 1) + ". " + q.stem;
+      card.appendChild(stem);
+
+      var opts = document.createElement("ul");
+      opts.className = "opts";
+      var inputType = q.type === "X" ? "checkbox" : "radio";
+      var groupName = "grp_" + q.id;
+
+      q.options.forEach(function (pair) {
+        var li = document.createElement("li");
+        li.className = "opt";
+        var input = document.createElement("input");
+        input.type = inputType;
+        input.name = groupName;
+        input.value = optionLetter(pair);
+        var label = document.createElement("label");
+        label.style.display = "flex";
+        label.style.gap = ".5rem";
+        label.style.cursor = "pointer";
+        label.style.flex = "1";
+        var span = document.createElement("span");
+        span.textContent = optionLetter(pair) + ". " + optionText(pair);
+        var wrapId = q.id + "_" + optionLetter(pair);
+        input.id = wrapId;
+        var labelFor = document.createElement("label");
+        labelFor.setAttribute("for", wrapId);
+        labelFor.style.flex = "1";
+        labelFor.style.cursor = "pointer";
+        labelFor.textContent = optionLetter(pair) + ". " + optionText(pair);
+        li.appendChild(input);
+        li.appendChild(labelFor);
+        li.dataset.key = optionLetter(pair);
+        opts.appendChild(li);
+      });
+      card.appendChild(opts);
+
+      var tagEl = document.createElement("div");
+      tagEl.className = "tag";
+      tagEl.textContent = "考点：" + q.tag;
+      card.appendChild(tagEl);
+
+      var verdict = document.createElement("div");
+      verdict.className = "verdict";
+      card.appendChild(verdict);
+
+      var explain = document.createElement("div");
+      explain.className = "explain";
+      explain.textContent = q.explain;
+      card.appendChild(explain);
+
+      container.appendChild(card);
+
+      card._grade = function () {
+        var checked = Array.prototype.slice.call(opts.querySelectorAll("input:checked")).map(function (i) { return i.value; });
+        var isCorrect = checked.length === q.answer.length && checked.every(function (k) { return q.answer.indexOf(k) !== -1; });
+        Array.prototype.forEach.call(opts.querySelectorAll(".opt"), function (li) {
+          var key = li.dataset.key;
+          var input = li.querySelector("input");
+          input.disabled = true;
+          li.classList.add("locked");
+          if (q.answer.indexOf(key) !== -1) li.classList.add("correct");
+          else if (checked.indexOf(key) !== -1) li.classList.add("incorrect");
+        });
+        verdict.textContent = isCorrect ? "✓ 正确" : "✗ 错误 · 正确答案：" + q.answer.join("、");
+        verdict.className = "verdict " + (isCorrect ? "right" : "wrong");
+        explain.className = "explain show";
+
+        var s = stats[q.tag] || {seen:0, correct:0, streak:0};
+        s.seen += 1;
+        if (isCorrect) { s.correct += 1; s.streak = (s.streak || 0) + 1; }
+        else { s.streak = 0; }
+        stats[q.tag] = s;
+
+        return isCorrect;
+      };
+    });
+
+    var submitBar = document.createElement("div");
+    submitBar.className = "actions-row";
+    var submitBtn = document.createElement("button");
+    submitBtn.className = "btn primary";
+    submitBtn.textContent = "提交本轮，查看判分";
+    submitBar.appendChild(submitBtn);
+    container.appendChild(submitBar);
+
+    submitBtn.addEventListener("click", function () {
+      var correctCount = 0;
+      var cards = container.querySelectorAll(".q-card");
+      cards.forEach(function (c) { if (c._grade()) correctCount++; });
+      submitBtn.disabled = true;
+      saveStats(stats);
+      renderNav();
+      renderMasterySummary();
+      renderStatsTable();
+      if (onAllGraded) onAllGraded(correctCount, questions.length);
+    });
+  }
+
+  function renderChapter(chId) {
+    var ch = CHAPTERS.filter(function (c) { return c.id === chId; })[0];
+    content.innerHTML = "";
+
+    var head = document.createElement("div");
+    head.className = "card chapter-head";
+    head.innerHTML = "<div><h2>" + ch.title + "</h2><p>" + ch.subtitle + "</p></div>";
+    content.appendChild(head);
+
+    var notesCard = document.createElement("div");
+    notesCard.className = "card";
+    notesCard.innerHTML = ch.notes;
+    content.appendChild(notesCard);
+
+    var quizWrap = document.createElement("div");
+    var startBtn = document.createElement("button");
+    startBtn.className = "btn primary";
+    startBtn.textContent = "抽查本章 5 题";
+    var actionsRow = document.createElement("div");
+    actionsRow.className = "actions-row";
+    actionsRow.appendChild(startBtn);
+    content.appendChild(actionsRow);
+    content.appendChild(quizWrap);
+
+    startBtn.addEventListener("click", function () {
+      quizWrap.innerHTML = "";
+      var pool = QUESTIONS.filter(function (q) { return q.ch === chId && !q.variant; });
+      buildQuizCards(pool, quizWrap, function (correct, total) {
+        var banner = document.createElement("div");
+        banner.className = "score-banner";
+        banner.innerHTML = '<span>本轮判分</span><span class="score tabular">' + correct + " / " + total + "</span>";
+        quizWrap.insertBefore(banner, quizWrap.firstChild);
+      });
+      startBtn.disabled = true;
+    });
+  }
+
+  function renderReview() {
+    content.innerHTML = "";
+    var head = document.createElement("div");
+    head.className = "card chapter-head";
+    head.innerHTML = "<div><h2>复盘</h2><p>把未连续答对两次的知识点找出变式题重考，不出原题。</p></div>";
+    content.appendChild(head);
+
+    var weakTags = TAG_ORDER.filter(function (t) { return tagStatus(t) !== "mastered"; });
+    var pool = QUESTIONS.filter(function (q) { return q.variant && weakTags.indexOf(q.tag) !== -1; });
+
+    if (!pool.length) {
+      var empty = document.createElement("div");
+      empty.className = "card empty-note";
+      empty.textContent = weakTags.length
+        ? "以下知识点还没掌握，但暂时没有配套变式题：" + weakTags.join("、") + "。去对话里让我针对性再出几题即可补齐。"
+        : "目前所有知识点都已连续答对两次，没有需要复盘的错题，可以直接学下一章了。";
+      content.appendChild(empty);
+      return;
+    }
+
+    var actionsRow = document.createElement("div");
+    actionsRow.className = "actions-row";
+    var startBtn = document.createElement("button");
+    startBtn.className = "btn primary";
+    startBtn.textContent = "开始复盘（" + pool.length + " 题）";
+    actionsRow.appendChild(startBtn);
+    content.appendChild(actionsRow);
+    var quizWrap = document.createElement("div");
+    content.appendChild(quizWrap);
+
+    startBtn.addEventListener("click", function () {
+      quizWrap.innerHTML = "";
+      buildQuizCards(pool, quizWrap, function (correct, total) {
+        var banner = document.createElement("div");
+        banner.className = "score-banner";
+        banner.innerHTML = '<span>复盘判分</span><span class="score tabular">' + correct + " / " + total + "</span>";
+        quizWrap.insertBefore(banner, quizWrap.firstChild);
+      });
+      startBtn.disabled = true;
+    });
+  }
+
+  function renderWeak() {
+    content.innerHTML = "";
+    var head = document.createElement("div");
+    head.className = "card chapter-head";
+    head.innerHTML = "<div><h2>弱项</h2><p>按正确率从低到高抽取知识点，优先用变式题，没有变式题时沿用原题。</p></div>";
+    content.appendChild(head);
+
+    var withAcc = TAG_ORDER.map(function (t) { return { tag: t, acc: tagAccuracy(t) }; })
+                            .filter(function (x) { return x.acc !== null; })
+                            .sort(function (a, b) { return a.acc - b.acc; });
+
+    if (!withAcc.length) {
+      var empty = document.createElement("div");
+      empty.className = "card empty-note";
+      empty.textContent = "还没有任何作答记录，先去任意章节抽查几轮再来看弱项统计。";
+      content.appendChild(empty);
+      return;
+    }
+
+    var lowestTags = withAcc.slice(0, 5).map(function (x) { return x.tag; });
+    var list = document.createElement("div");
+    list.className = "card";
+    list.innerHTML = "<h3>本轮聚焦知识点</h3><ul>" +
+      lowestTags.map(function (t) {
+        var acc = tagAccuracy(t);
+        return "<li>" + t + '　<span class="tabular">' + Math.round(acc * 100) + "%</span></li>";
+      }).join("") + "</ul>";
+    content.appendChild(list);
+
+    var pool = [];
+    lowestTags.forEach(function (t) {
+      var variants = QUESTIONS.filter(function (q) { return q.tag === t && q.variant; });
+      if (variants.length) pool.push(variants[0]);
+      else {
+        var original = QUESTIONS.filter(function (q) { return q.tag === t && !q.variant; })[0];
+        if (original) pool.push(original);
+      }
+    });
+
+    var actionsRow = document.createElement("div");
+    actionsRow.className = "actions-row";
+    var startBtn = document.createElement("button");
+    startBtn.className = "btn primary";
+    startBtn.textContent = "开始弱项特训（" + pool.length + " 题）";
+    actionsRow.appendChild(startBtn);
+    content.appendChild(actionsRow);
+    var quizWrap = document.createElement("div");
+    content.appendChild(quizWrap);
+
+    startBtn.addEventListener("click", function () {
+      quizWrap.innerHTML = "";
+      buildQuizCards(pool, quizWrap, function (correct, total) {
+        var banner = document.createElement("div");
+        banner.className = "score-banner";
+        banner.innerHTML = '<span>弱项特训判分</span><span class="score tabular">' + correct + " / " + total + "</span>";
+        quizWrap.insertBefore(banner, quizWrap.firstChild);
+      });
+      startBtn.disabled = true;
+    });
+  }
+
+  function render() {
+    renderNav();
+    renderMasterySummary();
+    renderStatsTable();
+    if (currentView.mode === "chapter") renderChapter(currentView.chapterId);
+    else if (currentView.mode === "review") renderReview();
+    else if (currentView.mode === "weak") renderWeak();
+  }
+
+  render();
+})();
+</script>
